@@ -24,7 +24,6 @@ function App() {
       })
       .then((data) => setDailyImage(data))
     .then(() => setLoading(false));
-    // .then(console.log("dailyImage:::::::", dailyImage.url));
   }, []);
 
   if (loading) {
