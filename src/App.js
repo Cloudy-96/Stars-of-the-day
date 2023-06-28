@@ -8,13 +8,9 @@ function App() {
   const [loading, setLoading] = useState(true);
   const date = dailyImage.date
   const formattedDate = dayjs(date).format("d MMM YYYY");
-  console.log(formattedDate)
 
    useEffect(() => {
-    fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
-      // "https://api.nasa.gov/planetary/apod?api_key=J09b7cOcrl56aoDGt5VrFrSYAZeSAlZlWz7S1Hd5"
-    )
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => setDailyImage(data))
       .then(() => setLoading(false));
