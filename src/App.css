@@ -21,6 +21,11 @@ main {
   display: flex;
 }
 
+section {
+  display: flex-rows;
+  gap: 20px;
+}
+
 img {
   margin: 12px
 }

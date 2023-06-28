@@ -6,17 +6,16 @@ import "./App.css";
 function App() {
   const [dailyImage, setDailyImage] = useState([]);
   const [loading, setLoading] = useState(true);
-  const date = dailyImage.date
-  const formattedDate = dayjs(date).format("d MMM YYYY");
+  const date = dailyImage.date;
+  const formattedDate = dayjs(date).format("DD MMM YYYY");
+  const dayMonth = dayjs(date).format("DD MMM");
 
-   useEffect(() => {
+  useEffect(() => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => setDailyImage(data))
       .then(() => setLoading(false));
   }, []);
-
-  console.log("nasa list", dailyImage);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -30,16 +29,28 @@ function App() {
 
       <main>
         <img src={dailyImage.url} alt="stars of the day" />
-        <div className="content">
-          <h2>Title: {dailyImage.title}</h2>
-          <h3>Image credit & copyright: {dailyImage.copyright}</h3>
-          <h4>
-            Date: {formattedDate}
-            {/* {dailyImage.date} */}
-          </h4>
-          <br />
-          <p>{dailyImage.explanation} </p>
-        </div>
+
+        <section>
+          <div className="content">
+            <h2>Title: {dailyImage.title}</h2>
+            <h3>Image credit & copyright: {dailyImage.copyright}</h3>
+            <h4>
+              Date: {formattedDate}
+              {/* {dailyImage.date} */}
+            </h4>
+            <br />
+            <p>{dailyImage.explanation} </p>
+          </div>
+
+          <div>
+            {/* TODO: see how single digit day displays and change it to Mom's Bday */}
+            {dayMonth === "28 Jun" ? (
+              <p> Happy Birthday, Mom!!!</p>
+            ) : (
+              console.log("surprise tbd")
+            )}
+          </div>
+        </section>
       </main>
 
       <footer>
