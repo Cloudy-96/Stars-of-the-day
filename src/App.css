@@ -5,6 +5,20 @@
   grid-template-rows: 101px 1fr 30px;
 }
 
+.Loading {
+  /* background: url("https://images.immediate.co.uk/production/volatile/sites/25/2022/02/16.OrionOverLowestoft_GeorgeRoberts-d65cfbb.jpg?quality=90&resize=980,654"); */
+  background: url("https://images.pexels.com/photos/2098428/pexels-photo-2098428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  display: grid;
+  place-content: center;
+  align-content: center;
+  color: #fafafa;
+}
+
+.Loading p {
+  margin-top: 25px;
+}
+
 .App-header {
   background-color: #282c34;
   /* min-height: 100px; */
@@ -14,11 +28,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-bottom: 12px;
+  padding-bottom: 12px;
 }
 
 main {
   display: flex;
+}
+
+main section {
+  margin-top: 12px;
 }
 
 section {
