@@ -6,6 +6,8 @@ import { PongSpinner } from "react-spinners-kit";
 import { useWindowSize } from "@react-hook/window-size";
 import Confetti from "react-confetti";
 
+const key = "3NhpTxAbv0jFQIWZrIFCMfiLTTScksKmfkp00jgN";
+
 function App() {
   const [dailyImage, setDailyImage] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ function App() {
   const dayMonth = dayjs(date).format("DD MMM");
 
   useEffect(() => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}`)
       .then((response) => response.json())
       .then((data) => setDailyImage(data))
       .then(() => setLoading(false))
