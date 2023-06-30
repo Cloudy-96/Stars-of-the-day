@@ -55,6 +55,7 @@ section {
   padding: 20px;
   max-width: 900px;
 }
+
 .content p {
   text-align: left;
 }
@@ -73,9 +74,13 @@ footer {
   color: #075985;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+
+  header {
+    height: fit-content
+  }
+
   main {
-    /* background-color: pink; */
     display: grid;
     padding-bottom: 7px;
     align-items: center;
@@ -84,10 +89,8 @@ footer {
 
   .content,
   img {
-   margin: auto;
-   margin-top: 12px;
-    /* align-items: center;
-    justify-content: center; */
+    margin: auto;
+    margin-top: 12px;
   }
 
   .content {
@@ -96,9 +99,14 @@ footer {
   }
 
   .mom h2 {
-    font-weight:800;
+    font-weight: 800;
   }
+
   .mom h3 {
     font-weight: 800;
+  }
+
+  footer {
+    height: fit-content;
   }
 }
