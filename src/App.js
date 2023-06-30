@@ -23,10 +23,14 @@ function App() {
   }, []);
 
   /* TODO: set timer for how long confetti will load for: use isFalling*/
-  if (dayMonth === "02 Jul" || dayMonth === "29 Jun") {
+  if (dayMonth === "02 Jul") {
     setTimeout(() => {
-      setIsFalling(true);
-    }, 3000);
+      setIsFalling(!isFalling);
+    }, 10000);
+
+    // setTimeout(() => {
+    //   setIsFalling(false);
+    // }, 3000);
   }
 
   return (
@@ -51,16 +55,22 @@ function App() {
 
           <section>
             <div>
-              {dayMonth === "29 Jun" || dayMonth === "02 Jul" ? (
+              {dayMonth === "02 Jul" ? (
                 <div className="mom">
                   {" "}
                   {isFalling ? (
                     <div>
                       <Confetti width={width} height={height} />{" "}
-                      <p>Happy Birthday, Mom!!!</p>
+                      <h2>🥳 Happy Birthday, Mom!!! 🥳</h2>
+                      <h3>You mean the universe to me</h3>
+                      <p>🌌</p>
                     </div>
                   ) : (
-                    <p>Happy Birthday, Mom!!!</p>
+                    <div>
+                      <h2>Happy Birthday, Mom!!!</h2>
+                      <h3>You mean the universe to me</h3>
+                      <p>🌌</p>
+                    </div>
                   )}
                 </div>
               ) : (
