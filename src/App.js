@@ -10,6 +10,7 @@ function App() {
   const [dailyImage, setDailyImage] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isFalling, setIsFalling] = useState(false);
+  const [hasFallen, setHasFallen] = useState(false);
   const [width, height] = useWindowSize();
   const date = dailyImage.date;
   const formattedDate = dayjs(date).format("DD MMM YYYY");
@@ -19,19 +20,24 @@ function App() {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => setDailyImage(data))
-      .then(() => setLoading(false));
+      .then(() => setLoading(false))
+      .then(() => {
+        if (dayMonth === "02 Jul") {
+          setIsFalling(true);
+
+          setTimeout(() => {
+            setIsFalling(false);
+          }, 10000);
+        }
+      })
+      .then(() => setHasFallen(true))
+      .then(() => {
+        if (hasFallen) {
+          // setHasFallen(true);
+          setIsFalling(false);
+        }
+      });
   }, []);
-
-  /* TODO: set timer for how long confetti will load for: use isFalling*/
-  if (dayMonth === "02 Jul") {
-    setTimeout(() => {
-      setIsFalling(!isFalling);
-    }, 10000);
-
-    // setTimeout(() => {
-    //   setIsFalling(false);
-    // }, 3000);
-  }
 
   return (
     <div className="App">
