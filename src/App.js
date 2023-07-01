@@ -29,7 +29,7 @@ function App() {
 
           setTimeout(() => {
             setIsFalling(false);
-          }, 10000);
+          }, 12000);
         }
       })
       .then(() => setHasFallen(true))
